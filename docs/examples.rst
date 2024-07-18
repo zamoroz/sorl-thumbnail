@@ -102,18 +102,10 @@ value store and its thumbnail references when deleted::
     nice admin addition explained in the next section.
 
 
-Another example on how to use ``sorl.thumbnail.ImageField`` in your existing
-project with only small code changes::
+Another example on how to use ``sorl.thumbnail.ImageField``::
 
-    # util/models.py
-    from django.db.models import *
-    from sorl.thumbnail import ImageField
-
-    # myapp/models.py
-    from util import models
-
-    class MyModel(models.Model):
-        logo = ImageField(upload_to='/dev/null')
+    obj = Item.objects.first()
+    thumbnail = obj.image.get_thumbnail("100x100")
 
 
 Admin examples

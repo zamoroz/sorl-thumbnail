@@ -37,6 +37,9 @@ class ImageField(models.ImageField):
         if data is not None:
             setattr(instance, self.name, data or '')
 
+    def get_thumbnail(self, geometry_string, **options):
+        return default.backend.get_thumbnail(self, geometry_string, **options)
+
 
 class ImageFormField(forms.FileField):
     default_error_messages = {
